@@ -113,3 +113,40 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 Bruno - [bruno.pereira.desenv@gmail.com](mailto:bruno.pereira.desenv@gmail.com)
 
 Link do Projeto: [https://github.com/bsp982/Todo-List-React-Native](https://github.com/bsp982/Todo-List-React-Native)
+
+## 📱 Gerando APK
+
+Para gerar o arquivo APK para distribuição do aplicativo, siga estes passos:
+
+1. Instale o EAS CLI globalmente:
+```bash
+npm install -g eas-cli
+```
+
+2. Faça login na sua conta Expo:
+```bash
+eas login
+```
+
+3. Configure o projeto para build:
+```bash
+eas build:configure
+```
+
+4. Gere o APK de desenvolvimento:
+```bash
+eas build -p android --profile development
+```
+
+5. Para gerar o APK de produção:
+```bash
+eas build -p android --profile production
+```
+
+Após a conclusão do build, o EAS fornecerá um link para download do APK. Você também pode encontrar todos os seus builds na seção "Builds" do seu projeto no [Expo Dashboard](https://expo.dev).
+
+### Notas importantes:
+- O processo de build pode levar alguns minutos
+- É necessário ter uma conta Expo
+- Para builds de produção, você precisará configurar uma keystore
+- O APK gerado pode ser instalado em qualquer dispositivo Android
