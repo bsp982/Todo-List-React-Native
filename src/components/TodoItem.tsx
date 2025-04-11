@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Todo } from '../types/todo';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface TodoItemProps {
   todo: Todo;
@@ -9,6 +10,76 @@ interface TodoItemProps {
 }
 
 export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
+  const { theme } = useTheme();
+
+  const styles = StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: theme.surface,
+      borderRadius: 16,
+      marginBottom: 12,
+      shadowColor: theme.shadow.color,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: theme.shadow.opacity,
+      shadowRadius: 3,
+      elevation: 2,
+    },
+    contentContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 16,
+    },
+    checkbox: {
+      width: 24,
+      height: 24,
+      borderRadius: 12,
+      borderWidth: 2,
+      borderColor: theme.checkbox.border,
+      marginRight: 16,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    checkboxChecked: {
+      backgroundColor: theme.checkbox.checked,
+    },
+    checkmark: {
+      color: theme.checkbox.checkmark,
+      fontSize: 14,
+      fontWeight: 'bold',
+    },
+    textContainer: {
+      flex: 1,
+    },
+    title: {
+      fontSize: 16,
+      color: theme.text.primary,
+      marginBottom: 4,
+    },
+    titleCompleted: {
+      color: theme.text.disabled,
+      textDecorationLine: 'line-through',
+    },
+    date: {
+      fontSize: 12,
+      color: theme.text.secondary,
+    },
+    deleteButton: {
+      padding: 16,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    deleteText: {
+      color: theme.delete,
+      fontSize: 24,
+      fontWeight: '300',
+    },
+  });
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -48,72 +119,4 @@ export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
       </TouchableOpacity>
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 16,
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.05,
-    shadowRadius: 3,
-    elevation: 2,
-  },
-  contentContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-  },
-  checkbox: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#3B82F6',
-    marginRight: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  checkboxChecked: {
-    backgroundColor: '#3B82F6',
-  },
-  checkmark: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  textContainer: {
-    flex: 1,
-  },
-  title: {
-    fontSize: 16,
-    color: '#1F2937',
-    marginBottom: 4,
-  },
-  titleCompleted: {
-    color: '#9CA3AF',
-    textDecorationLine: 'line-through',
-  },
-  date: {
-    fontSize: 12,
-    color: '#6B7280',
-  },
-  deleteButton: {
-    padding: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  deleteText: {
-    color: '#EF4444',
-    fontSize: 24,
-    fontWeight: '300',
-  },
-}); 
+} 
