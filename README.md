@@ -44,8 +44,8 @@ Um aplicativo moderno de lista de tarefas desenvolvido com React Native, Expo e 
 
 1. Clone o repositório:
 ```bash
-git clone [URL_DO_SEU_REPOSITÓRIO]
-cd TodoList
+git clone https://github.com/bsp982/Todo-List-React-Native.git
+cd Todo-List-React-Native
 ```
 
 2. Instale as dependências:
@@ -108,6 +108,8 @@ Contribuições são bem-vindas! Siga estes passos:
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## �� Contato
+## 📧 Contato
 
 Bruno - [bruno.pereira.desenv@gmail.com](mailto:bruno.pereira.desenv@gmail.com)
+
+Link do Projeto: [https://github.com/bsp982/Todo-List-React-Native](https://github.com/bsp982/Todo-List-React-Native)
